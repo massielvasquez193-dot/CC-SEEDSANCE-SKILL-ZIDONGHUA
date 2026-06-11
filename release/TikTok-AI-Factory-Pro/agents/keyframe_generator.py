@@ -41,7 +41,7 @@ class KeyframeGenerator:
     def __init__(self, provider=None):
         self.provider = provider
 
-    def generate(self, master_script: str, storyboard_text: str, character_consistency: dict, product_info: dict, output_dir: Path, keyframe_count: int = 6, character_canon: dict = None) -> dict:
+    def generate(self, master_script: str, storyboard_text: str, character_consistency: dict, product_info: dict, output_dir: Path, keyframe_count: int = 6) -> dict:
         output_dir = Path(output_dir)
         kf_dir = output_dir / "keyframes"
         kf_dir.mkdir(parents=True, exist_ok=True)
@@ -55,7 +55,7 @@ class KeyframeGenerator:
             shot_id = i + 1
             role = ["hook", "problem", "agitate", "solution", "result", "cta"][i % 6]
 
-            prompt = self._build_ugc_prompt(shot_id, role, character_consistency, product_info, master_script, character_canon)
+            prompt = self._build_ugc_prompt(shot_id, role, character_consistency, product_info, master_script)
             kf_path = kf_dir / f"keyframe_{shot_id:02d}.png"
 
             if self.provider and hasattr(self.provider, 'supports_image') and self.provider.supports_image:
@@ -79,40 +79,16 @@ class KeyframeGenerator:
         logger.info(f"Phase 2 Keyframes: {shot_count} real GPT Image PNGs → {kf_dir}")
         return {"keyframes": keyframes, "index_file": str(kf_dir / "keyframe_index.json")}
 
-    def _build_ugc_prompt(self, shot_id: int, role: str, consistency: dict, product: dict, script: str, character_canon: dict = None) -> str:
-        """UGC风格GPT Image prompt — 强制引用 character.json"""
-        # 优先使用 character_canon (人物圣经)
-        if character_canon:
-            c = character_canon
-            identity = c.get("identity", {})
-            appearance = c.get("appearance", {})
-            hair = appearance.get("hair", {})
-            face = appearance.get("face", {})
-            body = appearance.get("body", {})
-            clothing = c.get("clothing", {})
-            makeup = c.get("makeup", {})
-            vibe = c.get("vibe", {})
-
-            char_desc = (
-                f"a real {identity.get('race','')} {identity.get('gender','female')}, "
-                f"{identity.get('age_range','25-30')} years old, "
-                f"{hair.get('style','long straight')} {hair.get('color','brown')} hair, "
-                f"{face.get('skin_tone','natural')} skin with real texture and visible pores, "
-                f"{makeup.get('style','natural minimal')} makeup, "
-                f"wearing {clothing.get('outfit','casual top')}, "
-                f"{body.get('type','slim')} build, "
-                f"{vibe.get('overall','friendly natural')} vibe. "
-                f"SAME EXACT PERSON as character.json — NO variation."
-            )
-        else:
-            rules = consistency.get("consistency_rules", {})
-            a = rules.get("appearance", {})
-            char_desc = (
-                f"a real American TikTok creator, {a.get('age_range','25-30')} female, "
-                f"{a.get('hair_style','long natural hair')} {a.get('hair_color','brown')}, "
-                f"{a.get('skin_tone','natural')} skin with real texture, "
-                f"natural minimal makeup, wearing {a.get('clothing',{}).get('outfit','casual top') if isinstance(a.get('clothing'), dict) else 'casual top'}"
-            )
+    def _build_ugc_prompt(self, shot_id: int, role: str, consistency: dict, product: dict, script: str) -> str:
+        """UGC风格GPT Image prompt"""
+        rules = consistency.get("consistency_rules", {})
+        a = rules.get("appearance", {})
+        char_desc = (
+            f"a real American TikTok creator, {a.get('age_range','25-30')} female, "
+            f"{a.get('hair_style','long natural hair')} {a.get('hair_color','brown')}, "
+            f"{a.get('skin_tone','natural')} skin with real texture, "
+            f"natural minimal makeup, wearing {a.get('clothing',{}).get('outfit','casual top') if isinstance(a.get('clothing'), dict) else 'casual top'}"
+        )
         prod_desc = f"{product.get('brand','')} {product.get('product_name','')} ({product.get('color','')})"
 
         role_prompts = {

@@ -2,9 +2,18 @@
 TikTok UGC Video Factory — Character Generator (GPT Image)
 使用 GPT Image 生成真实一致的人物参考图
 
-第一张图生成后 → 保存 character.json (人物圣经)
-以后所有镜头 → 必须引用 character.json
-禁止: 重新随机人物、换脸、人物漂移、Seedance随机人
+输出:
+  character_reference.png  — 人物主参考图 (所有keyframe必须引用)
+  character_sheet.png      — 7姿态一致性参考表
+
+姿态:
+  正面 / 45度 / 侧面 / 微笑 / 口播 / 拿产品 / CTA动作
+
+规则:
+  同一人物贯穿全视频 — same woman, same hair, same outfit, same makeup, same room
+  禁止: 随机人物、换脸、人物漂移、Seedance随机人
+
+固定模型: GPT Image (DALL-E 3)
 """
 
 import base64
@@ -208,117 +217,6 @@ class CharacterGenerator:
             f"face morphing, different person, random character, Seedance random person, "
             f"character drift, face swapping, beauty filter, plastic skin."
         )
-
-    # ================================================================
-    # 人物圣经 — 保存/加载 character.json (全视频唯一人物定义)
-    # ================================================================
-    @staticmethod
-    def save_character_canon(character_info: dict, output_dir: Path) -> Path:
-        """
-        第一张人物图生成后立即调用。
-        保存 character.json — 全视频人物圣经。
-        以后所有镜头必须引用此文件，禁止重新随机人物。
-        """
-        output_dir = Path(output_dir)
-        output_dir.mkdir(parents=True, exist_ok=True)
-
-        canon = {
-            "version": "character_canon_v1",
-            "locked": True,
-            "rule": "SAME PERSON across ALL shots. NO random characters. NO re-generation.",
-
-            "identity": {
-                "name": character_info.get("name", "主角"),
-                "gender": character_info.get("gender", "female"),
-                "age_range": character_info.get("age_range", "25-30"),
-                "race": CharacterGenerator._infer_race(character_info),
-            },
-
-            "appearance": {
-                "hair": {
-                    "style": character_info.get("hair_style", "long straight"),
-                    "color": character_info.get("hair_color", "brown"),
-                    "length": "long",
-                },
-                "face": {
-                    "shape": character_info.get("face_shape", "oval"),
-                    "skin_tone": character_info.get("skin_tone", "natural fair"),
-                    "skin_texture": "natural with visible pores, no beauty filter",
-                },
-                "body": {
-                    "type": character_info.get("body_type", "slim"),
-                    "height": character_info.get("height_estimate", "165-170cm"),
-                },
-                "distinctive_features": character_info.get("distinctive_features", []),
-            },
-
-            "makeup": {
-                "style": character_info.get("makeup", "natural minimal"),
-                "detail": character_info.get("makeup_detail", "light foundation, natural brows, nude lip"),
-            },
-
-            "clothing": {
-                "outfit": CharacterGenerator._extract_clothing(character_info),
-                "style": character_info.get("clothing_style", "casual"),
-                "detail": character_info.get("clothing_detail", ""),
-            },
-
-            "vibe": {
-                "overall": character_info.get("vibe", "friendly natural"),
-                "expression_default": "natural slight smile",
-                "energy": "warm approachable",
-            },
-
-            "forbidden": [
-                "NO hair change (style, color, length)",
-                "NO outfit change",
-                "NO makeup change",
-                "NO face morphing or different person",
-                "NO age change",
-                "NO skin tone change",
-                "NO random Seedance character",
-                "NO re-generation of character image",
-                "NO beauty filter or plastic skin",
-            ],
-        }
-
-        path = output_dir / "character.json"
-        path.write_text(json.dumps(canon, indent=2, ensure_ascii=False), encoding="utf-8")
-        logger.info(f"[CharacterCanon] character.json saved: {path}")
-        return path
-
-    @staticmethod
-    def load_character_canon(output_dir: Path) -> dict:
-        """加载人物圣经 — 所有镜头必须引用此数据"""
-        path = Path(output_dir) / "character.json"
-        if not path.exists():
-            raise FileNotFoundError(
-                f"character.json not found at {path}. "
-                f"Character must be generated first. "
-                f"NO random characters allowed."
-            )
-        return json.loads(path.read_text(encoding="utf-8"))
-
-    @staticmethod
-    def _infer_race(character_info: dict) -> str:
-        skin = character_info.get("skin_tone", "").lower()
-        country_hint = str(character_info.get("file_name", "")).lower()
-        if "白" in skin or "fair" in skin:
-            return "caucasian" if "us" in country_hint or "american" in country_hint else "east_asian"
-        if "黑" in skin or "dark" in skin or "deep" in skin:
-            return "african_american" if "us" in country_hint else "black"
-        if "小麦" in skin or "tan" in skin or "olive" in skin:
-            return "latin" if "br" in country_hint or "mx" in country_hint else "southeast_asian"
-        if "棕" in skin or "medium" in skin:
-            return "middle_eastern" if "sa" in country_hint or "ae" in country_hint else "south_asian"
-        return "east_asian"
-
-    @staticmethod
-    def _extract_clothing(character_info: dict) -> str:
-        clothing = character_info.get("clothing", "casual top")
-        if isinstance(clothing, dict):
-            return clothing.get("outfit", clothing.get("style", "casual top"))
-        return clothing
 
     def _generate_with_gpt_image(self, prompt: str, output_path: Path):
         """调用 GPT Image (DALL-E 3) 生成真实图片"""

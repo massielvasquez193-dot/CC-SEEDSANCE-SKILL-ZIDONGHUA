@@ -241,15 +241,6 @@ def _run_force_scan(workflow):
 
 
 def main():
-    # ================================================================
-    # LICENSE CHECK — 启动前必须验证授权
-    # ================================================================
-    from license.license_manager import check_license
-    if not check_license():
-        print("\n[ERROR] 授权验证失败，程序退出。")
-        print("获取授权: 联系供应商并提供机器码。")
-        sys.exit(1)
-
     parser = argparse.ArgumentParser(
         description="TikTok AI Video Factory - 全自动视频生产工厂",
         formatter_class=argparse.RawDescriptionHelpFormatter,

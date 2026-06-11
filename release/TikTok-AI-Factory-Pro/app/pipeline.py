@@ -129,23 +129,17 @@ class FactoryPipeline:
         perf = self.ugc_director.analyze(task.reference_video, video_analysis, script, character_info, product_info)
         self.ugc_director.save(perf, out)
 
-        # STEP 2: GPT Image Character Generation → 保存 character.json (人物圣经)
-        logger.info(f"  [{task.task_id}] STEP 2: GPT Image Character → character.json canon")
+        # STEP 2: GPT Image Character Generation — 真实人物参考图 + 7姿态一致性表
+        logger.info(f"  [{task.task_id}] STEP 2: GPT Image Character (reference + 7-pose sheet)")
         try:
             char_result = self.character_generator.generate(character_info, out, product_info)
             char_anchor = char_result["character_anchor"]
-            # 保存人物圣经 — 以后所有镜头必须引用此文件
-            self.character_generator.save_character_canon(character_info, out)
         except RuntimeError as e:
-            logger.warning(f"GPT Image unavailable, using PIL fallback: {e}")
+            # GPT Image不可用时降级到PIL
+            logger.warning(f"GPT Image unavailable for character, using PIL fallback: {e}")
             char_consistency = self.character_consistency.generate(character_info, out)
             char_anchor = self.continuity.get_character_anchor()
             char_result = {"reference_image": str(out / "character_reference.png"), "sheet_image": None}
-            self.character_generator.save_character_canon(character_info, out)
-
-        # 加载人物圣经供后续步骤使用
-        character_canon = self.character_generator.load_character_canon(out)
-        logger.info(f"  Character locked: {character_canon['identity']['gender']}, {character_canon['identity']['age_range']}, {character_canon['identity']['race']}")
 
         # STEP 3: Voiceover — performance_script驱动
         logger.info(f"  [{task.task_id}] STEP 3: Voiceover (performance-driven)")
@@ -170,7 +164,7 @@ class FactoryPipeline:
                 "clothing": character_info.get("clothing", ""),
             },
         }}
-        kf_result = self.keyframe.generate(script, storyboard_text, kf_consistency, product_info, out, shot_count, character_canon)
+        kf_result = self.keyframe.generate(script, storyboard_text, kf_consistency, product_info, out, shot_count)
 
         # STEP 6: Seedance — Reference Image + Prompt + Character Anchor
         logger.info(f"  [{task.task_id}] STEP 6: Seedance (Keyframe + Character Anchor)")
