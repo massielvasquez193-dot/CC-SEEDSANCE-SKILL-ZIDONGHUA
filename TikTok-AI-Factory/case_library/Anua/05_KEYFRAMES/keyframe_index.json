@@ -1,0 +1,32 @@
+{
+  "case": "Anua",
+  "total": 5,
+  "generated_at": "2026-06-14T15:32:55.699970",
+  "keyframes": [
+    {
+      "shot_id": 1,
+      "role": "HOOK",
+      "file": "keyframe_01.png"
+    },
+    {
+      "shot_id": 2,
+      "role": "PROBLEM",
+      "file": "keyframe_02.png"
+    },
+    {
+      "shot_id": 3,
+      "role": "SOLUTION",
+      "file": "keyframe_03.png"
+    },
+    {
+      "shot_id": 4,
+      "role": "SOCIAL_PROOF",
+      "file": "keyframe_04.png"
+    },
+    {
+      "shot_id": 5,
+      "role": "CTA",
+      "file": "keyframe_05.png"
+    }
+  ]
+}

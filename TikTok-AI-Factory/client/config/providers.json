@@ -1,0 +1,91 @@
+{
+  "default": "${TIKTOK_FACTORY_AI_PROVIDER:-claude}",
+  "providers": {
+    "openai": {
+      "name": "OpenAI",
+      "type": "text_image_vision",
+      "api_key": "${OPENAI_API_KEY}",
+      "model": "${OPENAI_MODEL:-gpt-4o}",
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "endpoint": "https://api.openai.com/v1",
+      "models": {
+        "text": ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo"],
+        "image": ["dall-e-3"],
+        "vision": ["gpt-4o", "gpt-4o-mini"]
+      },
+      "rate_limit": {
+        "requests_per_minute": 500,
+        "tokens_per_minute": 200000
+      },
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [1, 5, 15]
+      }
+    },
+    "claude": {
+      "name": "Claude (Anthropic)",
+      "type": "text_vision",
+      "api_key": "${ANTHROPIC_API_KEY}",
+      "model": "${ANTHROPIC_MODEL:-claude-sonnet-4-6}",
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "endpoint": "https://api.anthropic.com/v1",
+      "models": {
+        "text": ["claude-sonnet-4-6", "claude-opus-4-8", "claude-haiku-4-5"],
+        "vision": ["claude-sonnet-4-6", "claude-opus-4-8"]
+      },
+      "rate_limit": {
+        "requests_per_minute": 50,
+        "tokens_per_minute": 100000
+      },
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [2, 10, 30]
+      }
+    },
+    "deepseek": {
+      "name": "DeepSeek",
+      "type": "text",
+      "api_key": "${DEEPSEEK_API_KEY}",
+      "model": "${DEEPSEEK_MODEL:-deepseek-chat}",
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "endpoint": "https://api.deepseek.com/v1",
+      "models": {
+        "text": ["deepseek-chat", "deepseek-reasoner"],
+        "vision": []
+      },
+      "rate_limit": {
+        "requests_per_minute": 60,
+        "tokens_per_minute": 100000
+      },
+      "retry": {
+        "max_retries": 3,
+        "backoff_seconds": [1, 5, 15]
+      }
+    },
+    "gemini": {
+      "name": "Gemini (Google)",
+      "type": "text_image_vision",
+      "api_key": "${GEMINI_API_KEY}",
+      "model": "${GEMINI_MODEL:-gemini-2.0-flash}",
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "endpoint": "https://generativelanguage.googleapis.com/v1",
+      "models": {
+        "text": ["gemini-2.0-flash", "gemini-2.0-pro", "gemini-2.5-pro"],
+        "image": ["imagen-3.0-generate-001"],
+        "vision": ["gemini-2.0-flash", "gemini-2.0-pro"]
+      },
+      "rate_limit": {
+        "requests_per_minute": 15,
+        "tokens_per_minute": 60000
+      },
+      "retry": {
+        "max_retries": 5,
+        "backoff_seconds": [2, 5, 15, 30, 60]
+      }
+    }
+  }
+}

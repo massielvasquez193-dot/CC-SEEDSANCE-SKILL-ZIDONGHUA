@@ -1,0 +1,26 @@
+{
+  "current_version": "3.0.0",
+  "update_channel": "stable",
+  "auto_check": true,
+  "last_checked": null,
+  "last_updated": null,
+  "update_server": "https://your-domain/version.json",
+  "skip_version": null,
+  "settings": {
+    "check_on_startup": true,
+    "download_retries": 3,
+    "verify_checksum": true,
+    "auto_restart": true,
+    "preserve_files": [
+      ".env",
+      "license.key",
+      "config/settings.json",
+      "config/update.json"
+    ],
+    "preserve_dirs": [
+      "output",
+      "logs",
+      "input"
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "US_FEMALE_UGC_01": {
+    "provider": "elevenlabs",
+    "voice_id": "21m00Tcm4TlvDq8ikWAM",
+    "name": "Rachel",
+    "country": "US",
+    "gender": "female",
+    "age_range": "25-30",
+    "style": "ugc",
+    "description": "Young American female, warm and natural, perfect for TikTok UGC product reviews",
+    "settings": {
+      "stability": 0.30,
+      "similarity_boost": 0.75,
+      "style": 0.40
+    }
+  },
+
+  "US_FEMALE_BEAUTY_02": {
+    "provider": "elevenlabs",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "name": "Sarah",
+    "country": "US",
+    "gender": "female",
+    "age_range": "25-35",
+    "style": "beauty",
+    "description": "American female beauty influencer voice, excited and trustworthy",
+    "settings": {
+      "stability": 0.25,
+      "similarity_boost": 0.70,
+      "style": 0.55
+    }
+  },
+
+  "US_FEMALE_REVIEW_03": {
+    "provider": "elevenlabs",
+    "voice_id": "MF3mGyEYCl7XYWbV9V6O",
+    "name": "Emily",
+    "country": "US",
+    "gender": "female",
+    "age_range": "20-28",
+    "style": "review",
+    "description": "Young American female, casual review style, sounds like a friend sharing",
+    "settings": {
+      "stability": 0.35,
+      "similarity_boost": 0.72,
+      "style": 0.45
+    }
+  },
+
+  "US_MALE_REVIEW_01": {
+    "provider": "elevenlabs",
+    "voice_id": "yoZ06aMxZJJ28mfd3POQ",
+    "name": "Chris",
+    "country": "US",
+    "gender": "male",
+    "age_range": "25-35",
+    "style": "review",
+    "description": "American male, casual honest review style, natural and unfiltered",
+    "settings": {
+      "stability": 0.35,
+      "similarity_boost": 0.70,
+      "style": 0.45
+    }
+  },
+
+  "US_FEMALE_ENERGY_04": {
+    "provider": "elevenlabs",
+    "voice_id": "TxGEqnHWrfWFTfGW9XjX",
+    "name": "Jessica",
+    "country": "US",
+    "gender": "female",
+    "age_range": "20-26",
+    "style": "ugc",
+    "description": "High energy American female, perfect for hook-driven TikTok content",
+    "settings": {
+      "stability": 0.20,
+      "similarity_boost": 0.78,
+      "style": 0.60
+    }
+  },
+
+  "UK_FEMALE_01": {
+    "provider": "elevenlabs",
+    "voice_id": "ThT5KcBeYPX3keUQqHPh",
+    "name": "Charlotte",
+    "country": "UK",
+    "gender": "female",
+    "age_range": "25-35",
+    "style": "beauty",
+    "description": "British female, elegant and trustworthy, beauty/skincare niche",
+    "settings": {
+      "stability": 0.30,
+      "similarity_boost": 0.75,
+      "style": 0.40
+    }
+  },
+
+  "AU_FEMALE_01": {
+    "provider": "elevenlabs",
+    "voice_id": "ODq5zmih8GrVes37Dizd",
+    "name": "Zoe",
+    "country": "AU",
+    "gender": "female",
+    "age_range": "22-30",
+    "style": "ugc",
+    "description": "Australian female, laid-back natural style, sunscreen/summer products",
+    "settings": {
+      "stability": 0.35,
+      "similarity_boost": 0.72,
+      "style": 0.40
+    }
+  }
+}

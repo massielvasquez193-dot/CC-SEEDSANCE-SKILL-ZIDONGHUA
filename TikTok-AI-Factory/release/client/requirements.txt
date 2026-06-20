@@ -1,0 +1,30 @@
+# TikTok AI Video Factory - 依赖
+
+# AI SDKs
+openai>=1.0.0
+anthropic>=0.30.0
+google-generativeai>=0.7.0
+
+# 图像处理
+Pillow>=10.0.0
+opencv-python>=4.8.0
+
+# 视频处理 (需要安装ffmpeg)
+# ffmpeg-python>=0.2.0
+
+# 工具
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# 日志
+# (使用内置logging模块)
+
+# 可选: 视频编辑
+# moviepy>=1.0.3
+
+# 可选: 进度条
+# tqdm>=4.66.0
+
+# 可选: API服务
+# fastapi>=0.104.0
+# uvicorn>=0.24.0

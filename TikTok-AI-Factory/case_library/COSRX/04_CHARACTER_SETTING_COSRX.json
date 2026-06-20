@@ -1,0 +1,47 @@
+{
+  "character_canon": {
+    "name": "Yuna",
+    "identity": {
+      "gender": "female",
+      "age_range": "25-32",
+      "race": "east_asian",
+      "persona": "成熟优雅，真实体验分享"
+    },
+    "appearance": {
+      "hair": {
+        "style": "long layered dark brown",
+        "color": "natural black/brown"
+      },
+      "face": {
+        "skin_tone": "natural warm",
+        "skin_type": "dry, dehydrated"
+      },
+      "body": {
+        "build": "slim",
+        "height": "165cm"
+      }
+    },
+    "clothing": {
+      "outfit": "米色针织衫",
+      "style_note": "casual home wear, natural fabric, no logos"
+    },
+    "makeup": {
+      "style": "natural minimal, dewy finish",
+      "note": "NO heavy foundation, NO false lashes, NO studio makeup"
+    },
+    "continuity_rules": [
+      "SAME person in ALL shots — NO face morphing",
+      "SAME hair style + color throughout video",
+      "SAME outfit throughout video",
+      "SAME skin texture — natural pores, slight imperfections",
+      "NO beauty filter, NO plastic skin, NO AI face"
+    ]
+  },
+  "product_context": {
+    "product": "COSRX Advanced Snail 96 Mucin Power Essence",
+    "usage": "Yuna naturally incorporates Advanced Snail 96 Mucin Power Essence into daily routine",
+    "scene": "real bedroom or bathroom, slightly messy, lived-in feel"
+  },
+  "generated_by": "TikTok AI Factory Pro v1.0.0",
+  "generated_at": "2026-06-14T15:32:55.786987"
+}

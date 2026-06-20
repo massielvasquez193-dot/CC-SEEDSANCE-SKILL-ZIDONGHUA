@@ -1,0 +1,75 @@
+{
+  "factory": {
+    "name": "TikTok AI Video Factory",
+    "version": "2.0.0",
+    "description": "全自动TikTok AI视频生产工厂"
+  },
+
+  "target": {
+    "country": "US",
+    "language": "en",
+    "timezone": "America/New_York",
+    "available_countries": {
+      "US": { "language": "en", "label": "美国 / United States" },
+      "GB": { "language": "en", "label": "英国 / United Kingdom" },
+      "ID": { "language": "id", "label": "印尼 / Indonesia" },
+      "BR": { "language": "pt", "label": "巴西 / Brazil" },
+      "TH": { "language": "th", "label": "泰国 / Thailand" },
+      "VN": { "language": "vi", "label": "越南 / Vietnam" },
+      "PH": { "language": "en", "label": "菲律宾 / Philippines" },
+      "MX": { "language": "es", "label": "墨西哥 / Mexico" },
+      "JP": { "language": "ja", "label": "日本 / Japan" },
+      "KR": { "language": "ko", "label": "韩国 / South Korea" },
+      "SA": { "language": "ar", "label": "沙特 / Saudi Arabia" },
+      "AE": { "language": "ar", "label": "阿联酋 / UAE" },
+      "CN": { "language": "zh", "label": "中国 / China" }
+    }
+  },
+
+  "video": {
+    "duration_seconds": 15,
+    "available_durations": [8, 15, 30, 60],
+    "resolution": {
+      "width": 1080,
+      "height": 1920
+    },
+    "aspect_ratio": "9:16",
+    "fps": 30,
+    "format": "mp4",
+    "generation": {
+      "provider": "seedance",
+      "enabled": true,
+      "poll_interval_seconds": 5,
+      "poll_max_retries": 60,
+      "delay_between_segments": 1.0,
+      "download_video": true,
+      "merge_segments": true
+    }
+  },
+
+  "output": {
+    "count": 1,
+    "max_concurrent": 3,
+    "pairing_mode": "one_to_one",
+    "formats": ["script.md", "storyboard.md", "storyboard.png",
+                 "seedance.txt", "veo3.txt", "jimeng.txt",
+                 "yunjing.txt", "subtitle.srt", "summary.json"],
+    "keep_intermediate": false
+  },
+
+  "content": {
+    "hook_max_seconds": 3,
+    "cta_min_seconds_before_end": 5,
+    "max_subtitle_chars_per_line": 20,
+    "keyframe_count": 6,
+    "negative_prompt_strength": "strict"
+  },
+
+  "limits": {
+    "max_input_image_size_mb": 20,
+    "max_input_video_size_mb": 500,
+    "max_input_video_duration_seconds": 180,
+    "supported_image_formats": ["jpg", "jpeg", "png", "webp"],
+    "supported_video_formats": ["mp4", "mov"]
+  }
+}

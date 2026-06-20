@@ -1,0 +1,62 @@
+{
+  "test_config": {
+    "task_count": 100,
+    "concurrent": 3,
+    "mode": "false",
+    "started_at": "2026-06-14T14:18:24.459857",
+    "finished_at": "2026-06-14T14:19:14.472267"
+  },
+  "results": {
+    "total": 100,
+    "completed": 99,
+    "failed": 0,
+    "success_rate": 99.0,
+    "failure_rate": 0.0
+  },
+  "timing": {
+    "total_elapsed_seconds": 50.0,
+    "avg_per_task_seconds": 1.5,
+    "min_seconds": 1.3,
+    "max_seconds": 2.8,
+    "median_seconds": 1.5,
+    "throughput_tasks_per_minute": 120.0
+  },
+  "costs": {
+    "per_video_estimate": 0.332,
+    "total_completed_cost": 32.87,
+    "avg_cost_per_successful_task": 0.332
+  },
+  "step_analysis": {
+    "steps_distribution": {
+      "9": 99
+    },
+    "max_steps_possible": 9,
+    "steps_with_errors": 1
+  },
+  "error_analysis": {
+    "total_errors": 1,
+    "error_rate": 1.0,
+    "error_types": {
+      "unknown": 1
+    },
+    "sample_errors": [
+      "[WinError 32] 另一个程序正在使用此文件，进程无法访问。"
+    ]
+  },
+  "api_status": {
+    "text_ai_available": false,
+    "image_ai_available": false,
+    "video_ai_available": false,
+    "tts_ai_available": false
+  },
+  "verdict": {
+    "status": "CONDITIONAL",
+    "text": "条件通过 — 需配置 API Key 后重新测试（文本 AI 未配置，脚本质量受限于模板模式）（图像 AI 未配置，关键帧使用占位图）",
+    "api_keys_needed": [
+      "text_ai_available",
+      "image_ai_available",
+      "video_ai_available",
+      "tts_ai_available"
+    ]
+  }
+}

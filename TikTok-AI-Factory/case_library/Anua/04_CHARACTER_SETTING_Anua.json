@@ -1,0 +1,47 @@
+{
+  "character_canon": {
+    "name": "Hana",
+    "identity": {
+      "gender": "female",
+      "age_range": "20-26",
+      "race": "east_asian",
+      "persona": "温柔知性，护肤达人感"
+    },
+    "appearance": {
+      "hair": {
+        "style": "medium wavy brown",
+        "color": "natural black/brown"
+      },
+      "face": {
+        "skin_tone": "natural warm",
+        "skin_type": "sensitive, redness-prone"
+      },
+      "body": {
+        "build": "slim",
+        "height": "165cm"
+      }
+    },
+    "clothing": {
+      "outfit": "浅绿色棉质上衣",
+      "style_note": "casual home wear, natural fabric, no logos"
+    },
+    "makeup": {
+      "style": "natural minimal, dewy finish",
+      "note": "NO heavy foundation, NO false lashes, NO studio makeup"
+    },
+    "continuity_rules": [
+      "SAME person in ALL shots — NO face morphing",
+      "SAME hair style + color throughout video",
+      "SAME outfit throughout video",
+      "SAME skin texture — natural pores, slight imperfections",
+      "NO beauty filter, NO plastic skin, NO AI face"
+    ]
+  },
+  "product_context": {
+    "product": "Anua Heartleaf 77% Soothing Toner",
+    "usage": "Hana naturally incorporates Heartleaf 77% Soothing Toner into daily routine",
+    "scene": "real bedroom or bathroom, slightly messy, lived-in feel"
+  },
+  "generated_by": "TikTok AI Factory Pro v1.0.0",
+  "generated_at": "2026-06-14T15:32:55.594742"
+}

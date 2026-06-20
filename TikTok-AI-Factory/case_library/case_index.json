@@ -1,0 +1,48 @@
+{
+  "library_version": "1.0.0",
+  "updated_at": "2026-06-14",
+  "brands": [
+    {
+      "id": "medicube",
+      "name": "Medicube",
+      "category": "Skincare — 韩国医美护肤",
+      "product": "Deep Vita C Pad",
+      "description": "Medicube 是韩国医美级护肤品牌。本案例展示 Deep Vita C Pad 维生素 C 棉片的 TikTok UGC 带货视频生成。",
+      "key_selling_points": [
+        "医美级成分",
+        "维生素C提亮",
+        "棉片设计方便使用"
+      ],
+      "target_audience": "20-35岁女性，关注美白淡斑",
+      "assets": 16
+    },
+    {
+      "id": "anua",
+      "name": "Anua",
+      "category": "Skincare — 韩国天然护肤",
+      "product": "Heartleaf 77% Soothing Toner",
+      "description": "Anua 是韩国天然护肤品牌，以鱼腥草为核心成分。本案例展示 Heartleaf 77% 舒缓爽肤水的 TikTok UGC 带货视频。",
+      "key_selling_points": [
+        "77%鱼腥草提取",
+        "舒缓敏感肌",
+        "天然成分温和"
+      ],
+      "target_audience": "18-30岁女性，敏感肌/痘痘肌",
+      "assets": 16
+    },
+    {
+      "id": "cosrx",
+      "name": "COSRX",
+      "category": "Skincare — 韩国功效护肤",
+      "product": "Advanced Snail 96 Mucin Power Essence",
+      "description": "COSRX 是韩国功效护肤品牌的代表。本案例展示 Advanced Snail 96 蜗牛粘液精华的 TikTok UGC 带货视频。",
+      "key_selling_points": [
+        "96%蜗牛粘液",
+        "修复皮肤屏障",
+        "TikTok viral 爆款"
+      ],
+      "target_audience": "18-35岁，干燥/受损肌肤",
+      "assets": 16
+    }
+  ]
+}

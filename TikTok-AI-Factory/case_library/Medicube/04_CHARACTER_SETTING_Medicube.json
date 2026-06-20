@@ -1,0 +1,47 @@
+{
+  "character_canon": {
+    "name": "Jisoo",
+    "identity": {
+      "gender": "female",
+      "age_range": "22-28",
+      "race": "east_asian",
+      "persona": "清纯自然，邻家女孩感"
+    },
+    "appearance": {
+      "hair": {
+        "style": "long straight black",
+        "color": "natural black/brown"
+      },
+      "face": {
+        "skin_tone": "natural warm",
+        "skin_type": "combination, dull tone"
+      },
+      "body": {
+        "build": "slim",
+        "height": "165cm"
+      }
+    },
+    "clothing": {
+      "outfit": "白色居家上衣",
+      "style_note": "casual home wear, natural fabric, no logos"
+    },
+    "makeup": {
+      "style": "natural minimal, dewy finish",
+      "note": "NO heavy foundation, NO false lashes, NO studio makeup"
+    },
+    "continuity_rules": [
+      "SAME person in ALL shots — NO face morphing",
+      "SAME hair style + color throughout video",
+      "SAME outfit throughout video",
+      "SAME skin texture — natural pores, slight imperfections",
+      "NO beauty filter, NO plastic skin, NO AI face"
+    ]
+  },
+  "product_context": {
+    "product": "Medicube Deep Vita C Pad",
+    "usage": "Jisoo naturally incorporates Deep Vita C Pad into daily routine",
+    "scene": "real bedroom or bathroom, slightly messy, lived-in feel"
+  },
+  "generated_by": "TikTok AI Factory Pro v1.0.0",
+  "generated_at": "2026-06-14T15:32:55.410662"
+}

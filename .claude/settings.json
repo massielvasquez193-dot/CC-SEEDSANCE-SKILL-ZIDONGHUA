@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf \"d:/cc seedance skill zidonghua/TikTok-AI-Factory/output/output001\")",
+      "Bash(rm -f \"d:/cc seedance skill zidonghua/TikTok-AI-Factory/output/factory_summary.json\" \"d:/cc seedance skill zidonghua/TikTok-AI-Factory/output/tasks.json\")",
+      "Bash(rm -rf output/*)",
+      "Bash(rm -f input/products/new_lipstick_red.jpg input/characters/new_model_02.jpg)",
+      "Bash(rm -f input/products/new_lipstick_red.jpg input/products/green_product.jpg input/characters/new_model_02.jpg input/characters/new_face.jpg)",
+      "Bash(rm -rf output/output001)",
+      "Bash(python run_factory.py --max-tasks 1 --provider seedance)",
+      "Bash(mkdir -p output)"
+    ]
+  }
+}
